@@ -1,3 +1,28 @@
+# FSE-2010-Diver
+ A tool which uses dynamic analysis to create trace-focused user interfaces for IDEs.
+
+This repository contains information related to the plugin Diver in eclipse  presented in the Foundation of Software Engineering Conference, 2010.
+
+You can find the paper on the folloing  [link](http://dl.acm.org/citation.cfm?id=1882291.1882351&coll=DL&dl=GUIDE&CFID=723011418&CFTOKEN=38876733).
+
+This repository is not the original repository for this tool.
+
+In this repository, for Diver you will find:
+
+
+* :white_check_mark: [Source code] (https://github.com/thechiselgroup/Diver)
+* :white_check_mark: [Executable tool](https://eclipsediver.wordpress.com/download/)
+
+This repository was constructed by [Rishi Anne](https://github.com/rishielnino) under the supervision of [Emerson Murphy-Hill](https://github.com/CaptainEmerson).
+
+## Attribution
+
+Authors of tool: Dr. Margaret-Anne Storey and Dr. Del Myers.
+
+
+
+
+
 ##Diver:  Dynamic Interactive Views For Reverse Engineering
 
 ###Diver has been retired. Thanks for your support of our research project!
