@@ -1,6 +1,6 @@
 # Steps to create the VM using Vagrant (after installing Vagrant and VirtualBox)
 
-1. Copy the file "Vagrantfile", "InstallChocolatey.bat" and "InstallJava.bat" to some folder in your local machine.
+1. Copy the files "Vagrantfile", "InstallChocolatey.bat" and "InstallJava.bat" to some folder in your local machine.
 2. Open the default shell in your local machine and navigate to the folder where the "Vagrantfile" was copied to.
 3. Type the following in the shell: "vagrant up" (without quotes)
 4. The vagrant file will begin executing an at some point the VM will start up on VirtualBox and then Chocolatey and Java get installed.
