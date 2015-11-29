@@ -96,11 +96,11 @@ Vagrant.configure(2) do |config|
 
      
      #Download the project to workspace
-     wget -OutFile Tetris.zip https://codeload.github.com/seanws/Tetris/zip/master
+     wget -OutFile workspace.zip https://googledrive.com/host/0B5ma3xEFW-W3Y0ZQTUhpZ2ZEOW8/workspace.zip
 
      #Extract eclipse and the project
      & 'C:\\Program Files\\7-Zip\\7z.exe' x eclipse.zip
-     & 'C:\\Program Files\\7-Zip\\7z.exe' x Tetris.zip -oC:\\Users\\vagrant\\workspace
+     & 'C:\\Program Files\\7-Zip\\7z.exe' x workspace.zip -oC:\\Users\\vagrant
      
      #Create desktop shortcut
      $TargetFile = "C:\\Users\\vagrant\\Desktop\\Diver\\eclipse\\eclipse.exe"
