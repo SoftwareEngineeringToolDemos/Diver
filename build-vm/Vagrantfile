@@ -1,6 +1,11 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+required_plugins = %w(  vagrant-reload )
+required_plugins.each do |plugin|
+  system "vagrant plugin install #{plugin}" unless Vagrant.has_plugin? plugin
+end
+
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
 # configures the configuration version (we support older styles for
 # backwards compatibility). Please don't change it unless you know what
@@ -14,8 +19,8 @@ Vagrant.configure(2) do |config|
   # boxes at https://atlas.hashicorp.com/search.
   config.vm.box = "datacastle/windows7"
   
-  config.vm.provision :shell, path: "InstallChocolatey.bat"
-  config.vm.provision :shell, path: "InstallJava.bat"
+  #config.vm.provision :shell, path: "InstallChocolatey.bat"
+  #config.vm.provision :shell, path: "InstallJava.bat"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -52,7 +57,7 @@ Vagrant.configure(2) do |config|
      vb.name = "Tyrrell-vvakkal-Diver"
   #
   #   # Customize the amount of memory on the VM:
-     vb.memory = "2048"
+     vb.memory = "3072"
    end
   #
   # View the documentation for the provider you are using for more
@@ -68,8 +73,54 @@ Vagrant.configure(2) do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
-  # config.vm.provision "shell", inline: <<-SHELL
-  #   sudo apt-get update
-  #   sudo apt-get install -y apache2
-  # SHELL
+  config.vm.provision "shell", inline:<<-SHELL
+     #Enable network sharing
+     netsh advfirewall firewall set rule group="Network Discovery" new enable=Yes
+     
+     #Download and install 7zip
+     wget -OutFile 7z.msi http://d.7-zip.org/a/7z1512-x64.msi
+     Start-Process .\\7z.msi /q -Wait
+
+     #Download vm-contents
+     cd C:\\Users\\vagrant\\Desktop
+     wget -OutFile Licenses.txt  https://github.com/SoftwareEngineeringToolDemos/FSE-2010-Diver/raw/master/build-vm/vm-contents/Licenses.txt
+     wget -OutFile How_to_use_Diver-YouTube.url https://github.com/SoftwareEngineeringToolDemos/FSE-2010-Diver/raw/master/build-vm/vm-contents/How_to_use_Diver-YouTube.url
+     wget -OutFile Installation.txt https://github.com/SoftwareEngineeringToolDemos/FSE-2010-Diver/raw/master/build-vm/vm-contents/Installation.txt
+     wget -OutFile Readme.txt https://github.com/SoftwareEngineeringToolDemos/FSE-2010-Diver/raw/master/build-vm/vm-contents/Readme.txt
+
+     mkdir Diver
+     cd Diver
+          
+     #Download eclipse
+     wget -OutFile eclipse.zip https://googledrive.com/host/0B5ma3xEFW-W3Y0ZQTUhpZ2ZEOW8/eclipse.zip
+
+     
+     #Download the project to workspace
+     wget -OutFile Tetris.zip https://codeload.github.com/seanws/Tetris/zip/master
+
+     #Extract eclipse and the project
+     & 'C:\\Program Files\\7-Zip\\7z.exe' x eclipse.zip
+     & 'C:\\Program Files\\7-Zip\\7z.exe' x Tetris.zip -oC:\\Users\\vagrant\\workspace
+     
+     #Create desktop shortcut
+     $TargetFile = "C:\\Users\\vagrant\\Desktop\\Diver\\eclipse\\eclipse.exe"
+     $ShortcutFile = "C:\\Users\\vagrant\\Desktop\\eclipse.exe.lnk"
+     $WScriptShell = New-Object -ComObject WScript.Shell
+     $Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
+     $Shortcut.TargetPath = $TargetFile
+     $Shortcut.Save()
+
+     #Copy the shortcut to startup folder
+     cp 'C:\\Users\\vagrant\\Desktop\\eclipse.exe.lnk' 'C:\\Users\\vagrant\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup'
+
+     #change power options
+     powercfg -change -monitor-timeout-ac 0
+     powercfg -change -standby-timeout-ac 0
+     powercfg -change -disk-timeout-ac 0
+     powercfg -change -hibernate-timeout-ac 0
+
+    SHELL
+
+    #Restart for the changes to effect
+     config.vm.provision :reload
 end
