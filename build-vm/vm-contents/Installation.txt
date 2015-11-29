@@ -1,0 +1,35 @@
+Installing Oracle Java 1.8
+
+1. Download the InstallChocolatey.bat and InstallJava.bat files from the build-vm folder of the git repository.
+
+2. Run the InstallChocolatey.bat and InstallJava.bat files in the same order to install chocolatey and Java respectively.
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Installing Eclipse Mars
+
+1. Download Elipse Mars Windows version from the below link.
+   http://eclipse.mirror.rafal.ca/technology/epp/downloads/release/mars/1/eclipse-jee-mars-1-win32-x86_64.zip
+
+2. Extract the downloaded the zip file.
+
+3. Go to the extract folder and double click on eclipse application to run it.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Installing Eclipse Diver
+
+1. Open the Eclipse platform.
+
+2. Go to Help > Install New Software, and then enter the following URL in the dialog panel that pops up.
+    http://diver.sourceforge.net/update
+
+3. Click the Add button, and select all the software components which are displayed after clicking the Add button. Click Next.
+
+4. Go through all the panels that follow. If a security warning appears, hit OK. When the license page is displayed, select I accept the terms of the license agreement.
+
+5. Once the installation is complete, you will be asked to restart Eclipse. After Eclipse is restarted, you have successfully installed Eclipse Diver.
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
