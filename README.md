@@ -12,6 +12,7 @@ In this repository, for Diver you will find:
 
 * :white_check_mark: [Source code] (https://github.com/thechiselgroup/Diver)
 * :white_check_mark: [Executable tool](https://eclipsediver.wordpress.com/download/)
+* :x: Virtual machine containing tool (not available)
 
 This repository was constructed by [Rishi Anne](https://github.com/rishielnino) under the supervision of [Emerson Murphy-Hill](https://github.com/CaptainEmerson).
 
