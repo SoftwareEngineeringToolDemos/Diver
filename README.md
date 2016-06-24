@@ -8,8 +8,6 @@ You can find the paper on the folloing  [link](http://dl.acm.org/citation.cfm?id
 This repository is not the original repository for this tool.
 
 In this repository, for Diver you will find:
-
-
 * :white_check_mark: [Source code] (https://github.com/thechiselgroup/Diver)
 * :white_check_mark: [Executable tool](https://eclipsediver.wordpress.com/download/)
 * :x: Virtual machine containing tool (not available)
